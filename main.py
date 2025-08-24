@@ -2,6 +2,8 @@ import pygame
 from constants import *
 
 game = True
+gameClock = pygame.time.Clock()
+dt = 0
 
 def main():
     pygame.init()
@@ -17,6 +19,9 @@ def main():
 
         screen.fill("black")
         pygame.display.flip()
+        gameClock.tick(60)
+        dt = gameClock.tick() / 1000
+        # print(dt)
 
 
 if __name__ == "__main__":
