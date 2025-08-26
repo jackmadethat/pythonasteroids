@@ -1,12 +1,17 @@
 import pygame
 from constants import *
+from circleshape import *
+from player import *
 
-game = True
-gameClock = pygame.time.Clock()
-dt = 0
+
+
+player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
 def main():
     pygame.init()
+    game = True
+    gameClock = pygame.time.Clock()
+    dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     print("Starting Asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
@@ -17,10 +22,15 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
+        dt = gameClock.tick(60) / 1000
+
+        player.update(dt)
         screen.fill("black")
+        player.draw(screen)
+        
         pygame.display.flip()
-        gameClock.tick(60)
-        dt = gameClock.tick() / 1000
+
+        # gameClock.tick(60)
         # print(dt)
 
 
