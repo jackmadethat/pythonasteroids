@@ -1,4 +1,6 @@
 import pygame
+from circleshape import *
+from constants import *
 
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):
